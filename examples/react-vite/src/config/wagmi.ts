@@ -1,6 +1,7 @@
 import { http, createConfig } from 'wagmi'
 import { defineChain } from 'viem'
-import { injected, walletConnect } from 'wagmi/connectors'
+import { injected } from 'wagmi/connectors'
+// import { walletConnect } from 'wagmi/connectors' // Uncomment when adding WalletConnect Project ID
 
 // Define Zama devnet chain
 export const zama = defineChain({
@@ -23,7 +24,8 @@ export const wagmiConfig = createConfig({
   chains: [zama],
   connectors: [
     injected(),
-    walletConnect({ projectId: 'YOUR_PROJECT_ID' }), // Replace with your WalletConnect project ID
+    // WalletConnect removed temporarily - add your Project ID from https://cloud.walletconnect.com/ if needed
+    // walletConnect({ projectId: 'YOUR_PROJECT_ID' }),
   ],
   transports: {
     [zama.id]: http('https://devnet.zama.ai/'),
