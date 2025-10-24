@@ -1,5 +1,7 @@
 {
+  "framework": null,
   "buildCommand": "pnpm install && pnpm --filter @universal-fhevm/core build && pnpm --filter @universal-fhevm/react build && pnpm --filter react-vite build",
   "outputDirectory": "examples/react-vite/dist",
-  "installCommand": "pnpm install --no-frozen-lockfile"
+  "installCommand": "pnpm install --no-frozen-lockfile",
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD ./examples/react-vite ./packages/fhevm-sdk"
 }
