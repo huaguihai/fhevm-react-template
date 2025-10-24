@@ -6,7 +6,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue.svg)](https://www.typescriptlang.org/)
 [![Built with Zama](https://img.shields.io/badge/Built%20with-Zama%20FHEVM-blue)](https://www.zama.ai/)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fhuaguihai%2Funiversal-fhevm-sdk&project-name=universal-fhevm-sdk-demo&repository-name=universal-fhevm-sdk-demo)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/huaguihai/universal-fhevm-sdk)
 
 [English](./README.md) | [Français](./README.fr.md) | [中文](./README.zh.md)
 
@@ -166,11 +166,25 @@ console.log('输入证明:', encrypted.inputProof)
 
 ## 🎬 在线演示
 
-一键部署尝试：
+### 部署你自己的实例
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fhuaguihai%2Funiversal-fhevm-sdk&project-name=universal-fhevm-sdk-demo&repository-name=universal-fhevm-sdk-demo)
+点击下方按钮导入并部署此项目到 Vercel：
 
-或访问我们的在线演示：
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/huaguihai/universal-fhevm-sdk)
+
+> **注意**：这会连接到你现有的仓库，每次推送代码时会自动重新部署。
+
+### 手动部署
+
+如果你更喜欢手动设置：
+
+1. 访问 [Vercel 控制台](https://vercel.com/new)
+2. 点击 "Import Project"
+3. 选择你的 `universal-fhevm-sdk` 仓库
+4. Vercel 会自动检测 `vercel.json` 配置
+5. 点击 "Deploy"
+
+### 已部署的演示
 - **React + Vite 演示**：[即将推出 - 在此添加您的部署 URL]
 - **Next.js 演示**：[代码可用](./examples/nextjs)
 

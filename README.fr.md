@@ -6,7 +6,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue.svg)](https://www.typescriptlang.org/)
 [![Built with Zama](https://img.shields.io/badge/Built%20with-Zama%20FHEVM-blue)](https://www.zama.ai/)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fhuaguihai%2Funiversal-fhevm-sdk&project-name=universal-fhevm-sdk-demo&repository-name=universal-fhevm-sdk-demo)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/huaguihai/universal-fhevm-sdk)
 
 [English](./README.md) | [Français](./README.fr.md) | [中文](./README.zh.md)
 
@@ -166,11 +166,25 @@ console.log('Preuve d\'entrée :', encrypted.inputProof)
 
 ## 🎬 Démonstration en Direct
 
-Essayez maintenant en un clic :
+### Déployez Votre Propre Instance
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fhuaguihai%2Funiversal-fhevm-sdk&project-name=universal-fhevm-sdk-demo&repository-name=universal-fhevm-sdk-demo)
+Cliquez sur le bouton ci-dessous pour importer et déployer ce projet sur Vercel :
 
-Ou visitez nos démos déployées :
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/huaguihai/universal-fhevm-sdk)
+
+> **Note** : Cela se connectera à votre dépôt existant, permettant des déploiements automatiques à chaque push.
+
+### Déploiement Manuel
+
+Si vous préférez la configuration manuelle :
+
+1. Visitez le [Tableau de bord Vercel](https://vercel.com/new)
+2. Cliquez sur "Import Project"
+3. Sélectionnez votre dépôt `universal-fhevm-sdk`
+4. Vercel détectera automatiquement la configuration `vercel.json`
+5. Cliquez sur "Deploy"
+
+### Démos Déployées
 - **Démo React + Vite** : [Bientôt disponible - Ajoutez votre URL de déploiement ici]
 - **Démo Next.js** : [Code Disponible](./examples/nextjs)
 
