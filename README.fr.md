@@ -6,7 +6,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue.svg)](https://www.typescriptlang.org/)
 [![Built with Zama](https://img.shields.io/badge/Built%20with-Zama%20FHEVM-blue)](https://www.zama.ai/)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fhuaguihai%2Ffhevm-react-template&project-name=universal-fhevm-sdk-demo&repository-name=universal-fhevm-sdk-demo&root-directory=examples/react-vite)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fhuaguihai%2Ffhevm-react-template&project-name=universal-fhevm-sdk-demo&repository-name=universal-fhevm-sdk-demo)
 
 [English](./README.md) | [Français](./README.fr.md) | [中文](./README.zh.md)
 
@@ -168,7 +168,7 @@ console.log('Preuve d\'entrée :', encrypted.inputProof)
 
 Essayez maintenant en un clic :
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fhuaguihai%2Ffhevm-react-template&project-name=universal-fhevm-sdk-demo&repository-name=universal-fhevm-sdk-demo&root-directory=examples/react-vite)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fhuaguihai%2Ffhevm-react-template&project-name=universal-fhevm-sdk-demo&repository-name=universal-fhevm-sdk-demo)
 
 Ou visitez nos démos déployées :
 - **Démo React + Vite** : [Bientôt disponible - Ajoutez votre URL de déploiement ici]

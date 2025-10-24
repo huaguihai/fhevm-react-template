@@ -1,0 +1,5 @@
+{
+  "buildCommand": "pnpm install && pnpm --filter @universal-fhevm/core build && pnpm --filter @universal-fhevm/react build && cd examples/react-vite && pnpm build",
+  "outputDirectory": "examples/react-vite/dist",
+  "installCommand": "pnpm install --no-frozen-lockfile"
+}
