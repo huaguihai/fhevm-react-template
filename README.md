@@ -6,6 +6,8 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue.svg)](https://www.typescriptlang.org/)
 [![Built with Zama](https://img.shields.io/badge/Built%20with-Zama%20FHEVM-blue)](https://www.zama.ai/)
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fhuaguihai%2Ffhevm-react-template&project-name=universal-fhevm-sdk-demo&repository-name=universal-fhevm-sdk-demo&root-directory=examples/react-vite)
+
 [English](./README.md) | [Français](./README.fr.md) | [中文](./README.zh.md)
 
 ## 🎯 Overview
@@ -164,6 +166,11 @@ console.log('Input proof:', encrypted.inputProof)
 
 ## 🎬 Live Demo
 
+Try it now with one click:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fhuaguihai%2Ffhevm-react-template&project-name=universal-fhevm-sdk-demo&repository-name=universal-fhevm-sdk-demo&root-directory=examples/react-vite)
+
+Or visit our deployed demos:
 - **React + Vite Demo**: [Coming Soon - Add your deployment URL here]
 - **Next.js Demo**: [Code Available](./examples/nextjs)
 
