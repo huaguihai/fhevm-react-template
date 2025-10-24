@@ -16,43 +16,56 @@ const nextConfig = {
     // Add externals
     config.externals.push('pino-pretty', 'lokijs', 'encoding')
 
-    // Configure WASM support
+    // Configure WASM support with all necessary experiments
     config.experiments = {
       ...config.experiments,
       asyncWebAssembly: true,
       layers: true,
+      topLevelAwait: true,
     }
 
-    // Handle .wasm files
+    // Optimization configuration for WASM
+    config.optimization.moduleIds = 'named'
+
+    // Configure output for WASM files
+    if (isServer) {
+      config.output.webassemblyModuleFilename = './../static/wasm/[modulehash].wasm'
+    } else {
+      config.output.webassemblyModuleFilename = 'static/wasm/[modulehash].wasm'
+    }
+
+    // Add aliases for WASM files
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'tfhe_bg.wasm': path.resolve(__dirname, '../../node_modules/.pnpm/tfhe@0.6.4/node_modules/tfhe/tfhe_bg.wasm'),
+      'kms_lib_bg.wasm': path.resolve(__dirname, '../../node_modules/.pnpm/fhevmjs@0.5.8_encoding@0.1.13/node_modules/fhevmjs/lib/kms_lib_bg.wasm'),
+    }
+
+    // Handle .wasm files as assets
     config.module.rules.push({
       test: /\.wasm$/,
       type: 'asset/resource',
-      generator: {
-        filename: 'static/wasm/[name][ext]',
-      },
     })
 
-    // Copy WASM files from fhevmjs
+    // Copy WASM files from dependencies to public folder
     if (!isServer) {
       const wasmPaths = [
-        path.resolve(__dirname, '../../node_modules/.pnpm/tfhe@0.6.4/node_modules/tfhe/tfhe_bg.wasm'),
-        path.resolve(__dirname, '../../node_modules/.pnpm/fhevmjs@0.5.8/node_modules/fhevmjs/lib/kms_lib_bg.wasm'),
+        {
+          from: path.resolve(__dirname, '../../node_modules/.pnpm/tfhe@0.6.4/node_modules/tfhe/tfhe_bg.wasm'),
+          to: path.resolve(__dirname, 'public/tfhe_bg.wasm'),
+        },
+        {
+          from: path.resolve(__dirname, '../../node_modules/.pnpm/fhevmjs@0.5.8_encoding@0.1.13/node_modules/fhevmjs/lib/kms_lib_bg.wasm'),
+          to: path.resolve(__dirname, 'public/kms_lib_bg.wasm'),
+        },
       ]
 
       config.plugins.push(
         new CopyPlugin({
-          patterns: wasmPaths.map((from) => ({
-            from,
-            to: path.resolve(__dirname, 'public'),
+          patterns: wasmPaths.map((pattern) => ({
+            ...pattern,
             noErrorOnMissing: true,
           })),
-        })
-      )
-
-      // Provide public path for WASM files
-      config.plugins.push(
-        new webpack.DefinePlugin({
-          'process.env.WASM_PATH': JSON.stringify('/'),
         })
       )
     }
