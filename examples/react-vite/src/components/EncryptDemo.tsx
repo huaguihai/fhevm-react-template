@@ -34,9 +34,29 @@ export function EncryptDemo() {
 
   if (fhevmError) {
     return (
-      <div className="error-box">
-        <h3>FHEVM Error</h3>
-        <p>{fhevmError.message}</p>
+      <div className="encrypt-demo">
+        <h2>Encrypt Data</h2>
+        <div className="warning-box">
+          <div className="warning-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+          </div>
+          <div>
+            <h4>FHEVM Network Unavailable</h4>
+            <p>Unable to connect to the Zama devnet. This is likely a temporary network issue.</p>
+            <p className="warning-note">
+              <strong>Note:</strong> The encryption demo requires connection to Zama's devnet.
+              The SDK itself is fully functional and can work with any FHEVM-compatible network.
+            </p>
+          </div>
+        </div>
+        <div className="info-box" style={{ marginTop: '1.5rem' }}>
+          <p><strong>Technical Details:</strong></p>
+          <p style={{ fontSize: '0.9rem', marginTop: '0.5rem', opacity: 0.8 }}>{fhevmError.message}</p>
+        </div>
       </div>
     )
   }
