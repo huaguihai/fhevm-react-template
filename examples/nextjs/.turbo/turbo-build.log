@@ -1,0 +1,32 @@
+
+> nextjs-fhevm-example@0.1.0 build /Users/guihaihua/lumao/ZAMA/build-an-universal-fhevm-sdk/examples/nextjs
+> next build
+
+   ▲ Next.js 14.1.0
+
+   Creating an optimized production build ...
+Failed to compile.
+
+../../node_modules/.pnpm/fhevmjs@0.5.8/node_modules/fhevmjs/lib/web.js
+Module not found: Can't resolve 'ethers'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+../../packages/core/dist/index.mjs
+../../packages/react/dist/index.mjs
+./src/components/Providers.tsx
+
+../../node_modules/.pnpm/fhevmjs@0.5.8/node_modules/fhevmjs/lib/web.js
+Module not found: Can't resolve 'tfhe_bg.wasm'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+../../packages/core/dist/index.mjs
+../../packages/react/dist/index.mjs
+./src/components/Providers.tsx
+
+
+> Build failed because of webpack errors
+ ELIFECYCLE  Command failed with exit code 1.

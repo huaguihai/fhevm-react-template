@@ -1,0 +1,45 @@
+{
+  "name": "@universal-fhevm/vue",
+  "version": "0.1.0",
+  "description": "Vue composables for Universal FHEVM SDK",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "clean": "rm -rf dist .turbo"
+  },
+  "keywords": [
+    "fhevm",
+    "vue",
+    "composables"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^3.3.0"
+  },
+  "dependencies": {
+    "@universal-fhevm/core": "workspace:*"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "tsup": "^8.0.2",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.2",
+    "vue": "^3.4.15"
+  }
+}
