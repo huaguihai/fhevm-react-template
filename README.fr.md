@@ -168,21 +168,63 @@ console.log('Preuve d\'entrée :', encrypted.inputProof)
 
 ### Déployez Votre Propre Instance
 
+#### Déploiement Rapide (Un Clic)
+
 Cliquez sur le bouton ci-dessous pour importer et déployer ce projet sur Vercel :
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/huaguihai/universal-fhevm-sdk)
 
-> **Note** : Cela se connectera à votre dépôt existant, permettant des déploiements automatiques à chaque push.
+> **⚠️ Important** : Après avoir cliqué sur le bouton, vous devrez ajuster les paramètres comme décrit dans "Déploiement Manuel" ci-dessous, car Vercel peut auto-détecter ce projet comme Next.js.
 
-### Déploiement Manuel
+#### Déploiement Manuel (Recommandé)
 
-Si vous préférez la configuration manuelle :
+Pour un déploiement réussi, suivez ces étapes :
 
-1. Visitez le [Tableau de bord Vercel](https://vercel.com/new)
-2. Cliquez sur "Import Project"
-3. Sélectionnez votre dépôt `universal-fhevm-sdk`
-4. Vercel détectera automatiquement la configuration `vercel.json`
-5. Cliquez sur "Deploy"
+1. **Visitez le Tableau de Bord Vercel**
+   - Allez sur [https://vercel.com/new](https://vercel.com/new)
+   - Cliquez sur "Import Project"
+   - Sélectionnez votre dépôt `universal-fhevm-sdk`
+
+2. **Configurez les Paramètres du Projet** (IMPORTANT !)
+
+   Dans l'étape "Configure Project", remplacez les paramètres auto-détectés :
+
+   | Paramètre | Valeur | Note |
+   |-----------|--------|------|
+   | **Framework Preset** | `Other` | ⚠️ N'utilisez PAS "Next.js" même si auto-détecté |
+   | **Root Directory** | `./` (racine) | Laisser vide ou définir à la racine |
+   | **Build Command** | Voir ci-dessous ↓ | Utiliser commande personnalisée |
+   | **Output Directory** | `examples/react-vite/dist` | Sortie des fichiers statiques |
+   | **Install Command** | `pnpm install --no-frozen-lockfile` | Utiliser pnpm |
+
+3. **Build Command** (copier exactement) :
+   ```bash
+   pnpm install && pnpm --filter @universal-fhevm/core build && pnpm --filter @universal-fhevm/react build && pnpm --filter react-vite build
+   ```
+
+4. **Variables d'Environnement** (si nécessaire)
+   - Aucune variable requise pour le déploiement de base
+   - Ajoutez des variables personnalisées si nécessaire
+
+5. **Cliquez sur "Deploy"**
+   - Vercel construira et déploiera votre démo React + Vite
+   - Le premier déploiement prend 2-3 minutes
+
+#### Dépannage
+
+**Si Vercel auto-détecte comme Next.js :**
+- ✅ Changez "Framework Preset" vers **Other**
+- ✅ Gardez "Root Directory" à `./` (racine du dépôt)
+- ✅ Utilisez la Build Command personnalisée ci-dessus
+- ✅ Définissez Output Directory à `examples/react-vite/dist`
+
+**Échec de build avec "vite: command not found" :**
+- Assurez-vous d'utiliser la commande de build complète qui construit d'abord les packages SDK
+- Vérifiez que Install Command utilise `pnpm`
+
+**Recherche de routes-manifest.json :**
+- Cela signifie que Vercel détecte toujours comme Next.js
+- Retournez et changez Framework Preset vers "Other"
 
 ### Démos Déployées
 - **Démo React + Vite** : [Bientôt disponible - Ajoutez votre URL de déploiement ici]

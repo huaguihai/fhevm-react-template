@@ -168,21 +168,63 @@ console.log('Input proof:', encrypted.inputProof)
 
 ### Deploy Your Own
 
+#### Quick Deploy (One-Click)
+
 Click the button below to import and deploy this project to Vercel:
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/huaguihai/universal-fhevm-sdk)
 
-> **Note**: This will connect to your existing repository, enabling automatic deployments on every push.
+> **⚠️ Important**: After clicking the button, you'll need to adjust the settings as described in "Manual Deployment" below, as Vercel may auto-detect this as a Next.js project.
 
-### Manual Deployment
+#### Manual Deployment (Recommended)
 
-If you prefer manual setup:
+For a successful deployment, follow these steps:
 
-1. Visit [Vercel Dashboard](https://vercel.com/new)
-2. Click "Import Project"
-3. Select your `universal-fhevm-sdk` repository
-4. Vercel will automatically detect `vercel.json` configuration
-5. Click "Deploy"
+1. **Visit Vercel Dashboard**
+   - Go to [https://vercel.com/new](https://vercel.com/new)
+   - Click "Import Project"
+   - Select your `universal-fhevm-sdk` repository
+
+2. **Configure Project Settings** (IMPORTANT!)
+
+   In the "Configure Project" step, override the auto-detected settings:
+
+   | Setting | Value | Note |
+   |---------|-------|------|
+   | **Framework Preset** | `Other` | ⚠️ Do NOT use "Next.js" even if auto-detected |
+   | **Root Directory** | `./` (root) | Leave empty or set to root |
+   | **Build Command** | See below ↓ | Use custom command |
+   | **Output Directory** | `examples/react-vite/dist` | Static files output |
+   | **Install Command** | `pnpm install --no-frozen-lockfile` | Use pnpm |
+
+3. **Build Command** (copy this exactly):
+   ```bash
+   pnpm install && pnpm --filter @universal-fhevm/core build && pnpm --filter @universal-fhevm/react build && pnpm --filter react-vite build
+   ```
+
+4. **Environment Variables** (if needed)
+   - No environment variables required for basic deployment
+   - Add any custom variables if needed
+
+5. **Click "Deploy"**
+   - Vercel will build and deploy your React + Vite demo
+   - First deployment takes 2-3 minutes
+
+#### Troubleshooting
+
+**If Vercel auto-detects as Next.js:**
+- ✅ Change "Framework Preset" to **Other**
+- ✅ Keep "Root Directory" as `./` (repository root)
+- ✅ Use the custom Build Command above
+- ✅ Set Output Directory to `examples/react-vite/dist`
+
+**Build fails with "vite: command not found":**
+- Make sure you're using the full build command that builds SDK packages first
+- Verify Install Command is set to use `pnpm`
+
+**Looking for routes-manifest.json:**
+- This means Vercel is still detecting as Next.js
+- Go back and change Framework Preset to "Other"
 
 ### Deployed Demos
 - **React + Vite Demo**: [Coming Soon - Add your deployment URL here]

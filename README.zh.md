@@ -168,21 +168,63 @@ console.log('输入证明:', encrypted.inputProof)
 
 ### 部署你自己的实例
 
+#### 快速部署（一键）
+
 点击下方按钮导入并部署此项目到 Vercel：
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/huaguihai/universal-fhevm-sdk)
 
-> **注意**：这会连接到你现有的仓库，每次推送代码时会自动重新部署。
+> **⚠️ 重要提示**：点击按钮后，你需要按照下面"手动部署"中的说明调整设置，因为 Vercel 可能会自动检测为 Next.js 项目。
 
-### 手动部署
+#### 手动部署（推荐）
 
-如果你更喜欢手动设置：
+要成功部署，请按照以下步骤操作：
 
-1. 访问 [Vercel 控制台](https://vercel.com/new)
-2. 点击 "Import Project"
-3. 选择你的 `universal-fhevm-sdk` 仓库
-4. Vercel 会自动检测 `vercel.json` 配置
-5. 点击 "Deploy"
+1. **访问 Vercel 控制台**
+   - 前往 [https://vercel.com/new](https://vercel.com/new)
+   - 点击 "Import Project"
+   - 选择你的 `universal-fhevm-sdk` 仓库
+
+2. **配置项目设置**（重要！）
+
+   在 "Configure Project" 步骤中，覆盖自动检测的设置：
+
+   | 设置项 | 值 | 说明 |
+   |--------|-----|------|
+   | **Framework Preset** | `Other` | ⚠️ 即使自动检测为 "Next.js"，也要改为 "Other" |
+   | **Root Directory** | `./`（根目录） | 留空或设置为根目录 |
+   | **Build Command** | 见下方 ↓ | 使用自定义命令 |
+   | **Output Directory** | `examples/react-vite/dist` | 静态文件输出目录 |
+   | **Install Command** | `pnpm install --no-frozen-lockfile` | 使用 pnpm |
+
+3. **Build Command**（完整复制以下命令）：
+   ```bash
+   pnpm install && pnpm --filter @universal-fhevm/core build && pnpm --filter @universal-fhevm/react build && pnpm --filter react-vite build
+   ```
+
+4. **环境变量**（如需要）
+   - 基础部署不需要环境变量
+   - 如有需要可添加自定义变量
+
+5. **点击 "Deploy"**
+   - Vercel 将构建并部署你的 React + Vite 演示
+   - 首次部署需要 2-3 分钟
+
+#### 故障排除
+
+**如果 Vercel 自动检测为 Next.js：**
+- ✅ 将 "Framework Preset" 改为 **Other**
+- ✅ 保持 "Root Directory" 为 `./`（仓库根目录）
+- ✅ 使用上面的自定义 Build Command
+- ✅ 设置 Output Directory 为 `examples/react-vite/dist`
+
+**构建失败提示 "vite: command not found"：**
+- 确保使用完整的构建命令，先构建 SDK 包
+- 验证 Install Command 设置为使用 `pnpm`
+
+**提示寻找 routes-manifest.json：**
+- 这意味着 Vercel 仍然检测为 Next.js
+- 返回并将 Framework Preset 改为 "Other"
 
 ### 已部署的演示
 - **React + Vite 演示**：[即将推出 - 在此添加您的部署 URL]
