@@ -25,6 +25,21 @@ Universal FHEVM SDK is a comprehensive, production-ready toolkit that simplifies
 - **📚 Well-Documented** - Extensive docs and working examples
 - **🎨 wagmi-Inspired API** - Familiar patterns for web3 developers
 
+## 🎥 Video Demo
+
+Watch the Universal FHEVM SDK in action! This video demonstrates the framework-agnostic architecture, live encryption demo, and multi-framework support.
+
+[![Universal FHEVM SDK Demo](https://img.shields.io/badge/▶️_Watch-Demo_Video-red?style=for-the-badge&logo=youtube)](YOUR_VIDEO_URL_HERE)
+
+**Video Highlights:**
+- ✨ Complete setup walkthrough
+- 🔐 Live encryption demonstration
+- 💻 Code examples across React, Vue, and Vanilla JS
+- 📚 Documentation overview
+- 🚀 Deployment guide
+
+> **Note**: Replace `YOUR_VIDEO_URL_HERE` with your actual YouTube video URL after recording.
+
 ## 📦 Packages
 
 | Package | Description | Size | Version |
@@ -166,6 +181,21 @@ console.log('Input proof:', encrypted.inputProof)
 
 ## 🎬 Live Demo
 
+Experience the SDK in action with our deployed demo applications:
+
+### 🚀 **React + Vite Demo** (Production-Ready)
+
+**Live URL**: **[https://universal-fhevm-sdk-inky.vercel.app/](https://universal-fhevm-sdk-inky.vercel.app/)**
+
+[![Visit Demo](https://img.shields.io/badge/🚀_Visit-Live_Demo-blue?style=for-the-badge)](https://universal-fhevm-sdk-inky.vercel.app/)
+
+**Features:**
+- ✅ Complete wallet integration with wagmi
+- ✅ Interactive encryption demo for all FHEVM types
+- ✅ Beautiful glassmorphism UI design
+- ✅ Real-time error handling and loading states
+- ✅ Professional SVG icons and animations
+
 ### Deploy Your Own
 
 #### Quick Deploy (One-Click)
@@ -225,10 +255,6 @@ For a successful deployment, follow these steps:
 **Looking for routes-manifest.json:**
 - This means Vercel is still detecting as Next.js
 - Go back and change Framework Preset to "Other"
-
-### Deployed Demos
-- **React + Vite Demo**: [Coming Soon - Add your deployment URL here]
-- **Next.js Demo**: [Code Available](./examples/nextjs)
 
 ## 💡 Features
 
@@ -387,6 +413,19 @@ MIT License - see [LICENSE](./LICENSE) for details.
 ## 🏆 About This Project
 
 This SDK was created for the **[Zama Developer Program Bounty Track - October 2025](https://www.zama.ai/post/developer-program-bounty-track-october-2025-build-an-universal-fhevm-sdk)**.
+
+### 🎯 Bounty Requirements Checklist
+
+- ✅ **Fork from official template** - Based on [fhevm-react-template](https://github.com/zama-ai/fhevm-react-template)
+- ✅ **Framework-agnostic core** - Works with Node.js, Next.js, Vue, React, and vanilla JS
+- ✅ **Complete FHEVM workflows** - Initialization, encryption, decryption, EIP-712 signatures
+- ✅ **wagmi-inspired API** - Modular hooks and adapters pattern
+- ✅ **Reusable components** - Comprehensive hooks covering all scenarios
+- ✅ **Next.js example** - Complete implementation with App Router
+- ✅ **Additional examples** - React + Vite and Vue 3 demos
+- ✅ **Deployed demo** - [Live on Vercel](https://universal-fhevm-sdk-inky.vercel.app/)
+- ✅ **Video demonstration** - See [Video Demo](#-video-demo) section above
+- ✅ **Clean documentation** - Quick starts, examples, and API references
 
 ### Key Achievements
 
