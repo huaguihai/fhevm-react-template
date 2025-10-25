@@ -9,8 +9,8 @@ export function WalletConnect() {
 
   if (isConnected && address) {
     return (
-      <div className="flex items-center gap-4">
-        <div className="text-sm text-gray-600 dark:text-gray-400">
+      <div className="flex items-center justify-center gap-4">
+        <div className="text-sm font-medium text-white/95 bg-white/10 px-4 py-2 rounded-xl border border-white/20">
           Connected: {address.slice(0, 6)}...{address.slice(-4)}
         </div>
         <button
@@ -24,7 +24,7 @@ export function WalletConnect() {
   }
 
   return (
-    <div className="flex gap-2">
+    <div className="flex justify-center gap-2">
       {connectors.map((connector) => (
         <button
           key={connector.id}
