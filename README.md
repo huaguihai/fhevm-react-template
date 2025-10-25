@@ -222,6 +222,19 @@ Experience the SDK in action with our deployed demo applications:
 - ✅ Real-time error handling and loading states
 - ✅ Professional SVG icons and animations
 
+### 📘 **Next.js Demo** (Full-Stack Application)
+
+**Live URL**: **[https://universal-fhevm-sdk-nextjs.vercel.app/](https://universal-fhevm-sdk-nextjs.vercel.app/)**
+
+[![Visit Demo](https://img.shields.io/badge/📘_Visit-Next.js_Demo-black?style=for-the-badge)](https://universal-fhevm-sdk-nextjs.vercel.app/)
+
+**Features:**
+- ✅ Next.js 14 with App Router
+- ✅ Server-side rendering support
+- ✅ Complete FHEVM integration
+- ✅ Wallet connection with wagmi
+- ✅ TypeScript + Tailwind CSS
+
 ### Deploy Your Own
 
 #### Quick Deploy (One-Click)

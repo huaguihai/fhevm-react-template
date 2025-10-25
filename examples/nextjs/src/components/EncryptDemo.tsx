@@ -8,7 +8,7 @@ export function EncryptDemo() {
   const { address } = useAccount()
   const { isReady, error: fhevmError } = useFHEVM()
   const [value, setValue] = useState('')
-  const [contractAddress, setContractAddress] = useState('')
+  const [contractAddress, setContractAddress] = useState('0x0000000000000000000000000000000000000000')
 
   const { encrypt, isPending, error, data } = useEncrypt({
     userAddress: address,
@@ -31,44 +31,68 @@ export function EncryptDemo() {
     }
   }
 
-  return (
-    <div className="card">
-      <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
-        Encrypt Data
-      </h2>
+  if (fhevmError) {
+    return (
+      <div className="space-y-4">
+        <h2 className="text-2xl md:text-3xl font-bold text-white">Encrypt Data</h2>
 
-      {!address && (
-        <div className="mb-4 p-4 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded-lg">
-          Please connect your wallet first
+        <div className="warning-box">
+          <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-yellow-500/20 rounded-lg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+          </div>
+          <div>
+            <h4 className="font-semibold text-yellow-100 mb-2">FHEVM Network Unavailable</h4>
+            <p className="text-yellow-200/90 mb-2">
+              Unable to connect to the Zama network. This is likely a temporary network issue.
+            </p>
+            <p className="text-yellow-200/90 text-sm mt-4 pt-4 border-t border-yellow-500/30">
+              <strong>Note:</strong> The encryption demo requires connection to Zama's network.
+              The SDK itself is fully functional and can work with any FHEVM-compatible network.
+            </p>
+          </div>
         </div>
-      )}
 
-      {fhevmError && (
-        <div className="mb-4 p-4 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-lg">
-          FHEVM Error: {fhevmError.message}
-        </div>
-      )}
-
-      <div className="mb-4">
-        <div className="flex items-center gap-2 mb-2">
-          <span className="text-sm text-gray-600 dark:text-gray-400">
-            FHEVM Status:
-          </span>
-          <span
-            className={`px-2 py-1 rounded text-xs font-medium ${
-              isReady
-                ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
-                : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200'
-            }`}
-          >
-            {isReady ? 'Ready' : 'Initializing...'}
-          </span>
+        <div className="info-box">
+          <p><strong>Technical Details:</strong></p>
+          <p className="text-sm mt-2 opacity-80">{fhevmError.message}</p>
         </div>
       </div>
+    )
+  }
+
+  if (!address) {
+    return (
+      <div className="space-y-4">
+        <h2 className="text-2xl md:text-3xl font-bold text-white">Encrypt Data</h2>
+        <div className="info-box">
+          <p>Please connect your wallet to use encryption features</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (!isReady) {
+    return (
+      <div className="space-y-4">
+        <h2 className="text-2xl md:text-3xl font-bold text-white">Encrypt Data</h2>
+        <div className="loading-box">
+          <p>Initializing FHEVM...</p>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="space-y-6">
+      <h2 className="text-2xl md:text-3xl font-bold text-white">Encrypt Data</h2>
 
       <div className="space-y-4">
         <div>
-          <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+          <label className="block text-sm font-medium mb-2 text-white/90">
             Value to Encrypt (uint64)
           </label>
           <input
@@ -82,7 +106,7 @@ export function EncryptDemo() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+          <label className="block text-sm font-medium mb-2 text-white/90">
             Contract Address
           </label>
           <input
@@ -104,32 +128,33 @@ export function EncryptDemo() {
         </button>
 
         {error && (
-          <div className="p-4 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-lg">
-            Error: {error.message}
+          <div className="error-box">
+            <h4 className="font-semibold text-red-200 mb-2">Encryption Error:</h4>
+            <p className="text-red-300/90">{error.message}</p>
           </div>
         )}
 
         {data && (
-          <div className="p-4 bg-green-100 dark:bg-green-900 rounded-lg">
-            <h3 className="font-medium mb-2 text-green-900 dark:text-green-100">
-              Encrypted Successfully!
-            </h3>
-            <div className="text-sm space-y-2">
+          <div className="success-box">
+            <h4 className="font-semibold text-green-100 mb-4">Encryption Successful!</h4>
+            <div className="space-y-4">
               <div>
-                <span className="font-medium text-green-800 dark:text-green-200">
-                  Handles:
-                </span>
-                <div className="mt-1 p-2 bg-white dark:bg-gray-800 rounded text-xs font-mono break-all">
-                  {data.handles.join(', ')}
+                <p className="font-medium text-green-200 mb-2">Handles:</p>
+                <div className="space-y-2">
+                  {data.handles.map((handle, idx) => (
+                    <div
+                      key={idx}
+                      className="font-mono text-sm bg-white/5 p-3 rounded-lg border border-white/10 break-all hover:bg-white/8 transition-colors"
+                    >
+                      {handle}
+                    </div>
+                  ))}
                 </div>
               </div>
               <div>
-                <span className="font-medium text-green-800 dark:text-green-200">
-                  Input Proof Length:
-                </span>
-                <div className="mt-1 p-2 bg-white dark:bg-gray-800 rounded text-xs font-mono">
-                  {data.inputProof.length} bytes
-                </div>
+                <p className="font-medium text-green-200">
+                  Input Proof Length: <span className="font-mono">{data.inputProof.length}</span> bytes
+                </p>
               </div>
             </div>
           </div>
