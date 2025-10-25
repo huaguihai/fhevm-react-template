@@ -1,0 +1,6 @@
+{
+  "buildCommand": "pnpm install && pnpm --filter @universal-fhevm/core build && pnpm --filter @universal-fhevm/react build && pnpm --filter nextjs-fhevm-example build",
+  "outputDirectory": ".next",
+  "installCommand": "pnpm install --no-frozen-lockfile",
+  "framework": "nextjs"
+}
