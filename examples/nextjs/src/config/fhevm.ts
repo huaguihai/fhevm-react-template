@@ -1,7 +1,7 @@
 // FHEVM Configuration (exported as plain object to avoid import-time issues)
 export const fhevmConfig = {
   chainId: 11155111, // Sepolia testnet
-  networkUrl: 'https://sepolia.public.blastapi.io',
+  networkUrl: 'https://ethereum-sepolia-rpc.publicnode.com',
   gatewayUrl: 'https://gateway.sepolia.zama.ai/',
   aclAddress: '0x687820221192C5B662b25367F70076A37bc79b6c',
   cacheEnabled: true,
