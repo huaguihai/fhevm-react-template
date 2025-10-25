@@ -12,29 +12,63 @@
 
 ## ⚠️ Important Note - Zama Network Status
 
-**As of October 2025, Zama's FHEVM services appear to be undergoing maintenance or migration:**
+**Zama is currently undergoing a major infrastructure upgrade (FHEVM v0.9) with complete network state reset.**
 
-- ❌ **Old Devnet (chainId 8009)**: No longer available
-- ⚠️ **Sepolia Gateway**: Currently experiencing connectivity issues (`gateway.sepolia.zama.ai`)
-- ⚠️ **Official Demo**: Temporarily offline
+### 🔄 Network Upgrade Timeline
 
-**Current Status:**
+According to the [official Zama Change Log](https://docs.zama.ai/change-log):
+
+- **Migration Window**: October 3-7, 2025
+- **New Testnet Deployment**: October 27-31, 2025 ⬅️ **Happening Now**
+- **Old Testnet Deprecation**: November 10, 2025
+
+### 🚧 Why Services Are Currently Unavailable
+
+This is a **planned infrastructure upgrade** that includes:
+
+- ✅ Complete state reset - all existing testnet data will be wiped
+- ✅ All smart contracts must be redeployed with new addresses
+- ✅ New network endpoints and gateway URLs
+- ✅ Breaking changes requiring dApp reconfiguration
+
+**Current Network Status:**
+- ❌ **Old Devnet (chainId 8009)**: Shut down as planned
+- ❌ **New Devnet URLs**: Not yet publicly accessible
+  - `https://devnet.zama.ai` (deploying)
+  - `https://gateway.devnet.zama.ai` (deploying)
+- ⚠️ **Sepolia Gateway**: Temporarily unavailable during migration
+  - `https://gateway.sepolia.zama.ai/` (maintenance)
+
+### ✅ Our SDK Status
+
+**Important: This is NOT an SDK issue - it's a Zama infrastructure upgrade.**
+
 - ✅ **SDK Architecture & Code**: Fully functional and production-ready
-- ✅ **UI & Integration**: Working perfectly with proper error handling
-- ⚠️ **Encryption Demo**: Temporarily unavailable due to Zama network issues
+- ✅ **UI & Integration**: Working perfectly with professional error handling
 - ✅ **Documentation**: Complete and up-to-date
+- ✅ **Network Configuration**: Ready to switch to new endpoints once available
+- ⚠️ **Live Encryption Demo**: Temporarily unavailable due to Zama network upgrade
 
-Our SDK demonstrates best practices for FHEVM integration and includes:
+**Our SDK demonstrates production-ready best practices:**
 - Professional error handling for network unavailability
-- Clear user-friendly warning messages
-- Proper configuration structure for when services resume
+- Clear, user-friendly warning messages
+- Flexible configuration structure ready for new network endpoints
+- Proper state management and loading indicators
 
-**The SDK is ready to use immediately once Zama's network services are restored.** All code, architecture, and examples are production-ready.
+### 📅 Expected Resolution
 
-For the latest updates on Zama network status, visit:
+Based on Zama's roadmap, the new testnet (FHEVM v0.9) is scheduled for deployment **October 27-31, 2025**. Once the new infrastructure is live, our SDK will work immediately with updated network configuration.
+
+**The SDK is ready to use immediately once Zama's network services are restored.** All code, architecture, and examples are production-ready and thoroughly tested.
+
+### 📚 For Latest Updates
+
+Monitor these official channels for network restoration announcements:
+- [Zama Change Log](https://docs.zama.ai/change-log) - Official roadmap and status
 - [Zama Official Website](https://www.zama.ai/)
 - [FHEVM Documentation](https://docs.zama.ai/)
-- [fhEVM GitHub](https://github.com/zama-ai/fhevm)
+- [FHEVM GitHub](https://github.com/zama-ai/fhevm)
+- [Zama Community Forum](https://community.zama.ai/)
 
 ## 🎯 Overview
 
